@@ -23,3 +23,25 @@
 ### 后言：
 
 ###### 这只是本人随手随便写的程序，不保证其他情况能够正确运行，如果无法使用请自行修改或绕行。
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+### This is the Kicad assist program which adds symbol, package library and 3d model 
+
+### Use:
+
+##### Add lots of symbol, package library and 3d model in the Kicad global libs
+
+### Instructions:
+
+##### Drag the compressed package containing .lib,.step,.wrl,.kicad_mod into the program and press'+'. However, it should be noted that you need to fill in the storage address of the repository. This address can be anywhere, but this save path cannot be changed after adding it, and changing it again will cause Kicad to fail to find the file.
+
+##### In addition, if the imported 3d model is offset from the position of the package, you need to check the rotation adjustment. In general, the offset value of the model is: -90, and only one axis needs to be checked.
+
+##### For example, if you use: https://www.snapeda.com/ to download the library, you need to tick the X axis. Use: LCKiConverter browser plugin to download the library, you need to check the Z axis.
+
+### Precautions:
+
+##### If your region does not use the utf-8 encoding format, Kicad will report an error. If you want to continue using it, you need to modify the encoding format of line 13 of kicadaddlib.py, and modify C:\Users\ 'username' \AppData\Roaming\kicad\ which: sym-lib-table and fp-lib -The encoding format of the table.
+
+##### If you find that Kicad unexpectedly reports an error during use, you need to delete the newly added items of sym-lib-table and fp-lib-table, and pay attention to the number of brackets. I use the above URL and plug-ins to run normally, and I do not guarantee that the compressed packages downloaded from other websites can be added correctly.
