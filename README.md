@@ -42,6 +42,6 @@
 
 ### Precautions:
 
-##### If your region does not use the utf-8 encoding format, Kicad will report an error. If you want to continue using it, you need to modify the encoding format of line 13 of kicadaddlib.py, and modify C:\Users\ 'username' \AppData\Roaming\kicad\ which: sym-lib-table and fp-lib -The encoding format of the table.
+##### If your region does not use the utf-8 encoding format, Kicad will report an error. If you want to continue using it, you need to modify the encoding format of line 13 of kicadaddlib.py, and modify C:\Users\ 'username' \AppData\Roaming\kicad\ in a sym-lib-table and fp-lib-table.
 
 ##### If you find that Kicad unexpectedly reports an error during use, you need to delete the newly added items of sym-lib-table and fp-lib-table, and pay attention to the number of brackets. I use the above URL and plug-ins to run normally, and I do not guarantee that the compressed packages downloaded from other websites can be added correctly.
