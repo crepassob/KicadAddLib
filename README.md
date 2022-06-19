@@ -16,7 +16,7 @@
 
 ### 注意事项：
 
-###### 如果您所在的地区没有使用 utf-8 编码格式，会导致Kicad报错。如果您想要继续使用，则需要修改kicadaddlib.py 的第13行编码格式，并修改 C:\Users\ '用户名' \AppData\Roaming\kicad\ 其中的 ： sym-lib-table和fp-lib-table 的编码格式。
+###### 输入路径分隔符为‘/’，而不是‘\’,否则导入的库会无法读取
 
 ###### 如果您在使用中发现Kicad意外报错则需要删除 sym-lib-table和fp-lib-table 新添加的项目，并注意括号的数量。本人使用上述网址以及插件能够正常运行，不保证其他网站下载的压缩包能够正确添加。
 
@@ -42,6 +42,6 @@
 
 ### Precautions:
 
-##### If your region does not use the utf-8 encoding format, Kicad will report an error. If you want to continue using it, you need to modify the encoding format of line 13 of kicadaddlib.py, and modify C:\Users\ 'username' \AppData\Roaming\kicad\ in a sym-lib-table and fp-lib-table.
+##### The input path separator is '/' instead of '\', otherwise the imported library will not be able to read
 
 ##### If you find that Kicad unexpectedly reports an error during use, you need to delete the newly added items of sym-lib-table and fp-lib-table, and pay attention to the number of brackets. I use the above URL and plug-ins to run normally, and I do not guarantee that the compressed packages downloaded from other websites can be added correctly.
