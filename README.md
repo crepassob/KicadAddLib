@@ -1,6 +1,7 @@
 # KicadAddLib
 
 ### 这是一个向Kicad添加符号，封装库以及3d模型的一个辅助程序
+![view](https://user-images.githubusercontent.com/42341537/174481225-3cd788b4-f218-4b91-9e8f-f45285d92e45.png)
 
 ### 用途：
 
