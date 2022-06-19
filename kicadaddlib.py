@@ -6,12 +6,13 @@ import random,os,time,sys,zipfile
 from win32.lib.commctrl import *
 from pythonwin import win32ui
 import zipfile
+import locale
+
 
 file_path , content2str = '' , ''
 a1,b1,c1 = [],[],[]
 x_number,y_number,z_number = 0,0,0
-openencoding = 'utf-8'
-
+openencoding = locale.getpreferredencoding()
 
 WM_SEARCH_RESULT = WM_USER + 512
 WM_SEARCH_FINISHED = WM_USER + 513
@@ -28,7 +29,7 @@ lf1.lfFaceName = "微软雅黑"
 lf1.lfHeight = -DEVICE_DEFAULT_FONT +4
 lf1.lfWeight = FW_REGULAR
 hfont1 = CreateFontIndirect(lf1)
-
+    
 def finddoc(zip,path):
   global a1,b1,c1
   
@@ -43,7 +44,6 @@ def finddoc(zip,path):
 
   for a11 in lines:
     number = GetDlgItemText(hwnd,3)
-    print(a11)
     if line[0] in a11:
       a1.append(a11)
       SendMessage(Ctrl4,WM_SETTEXT,0, number + '\r\n' + a11)
@@ -110,7 +110,6 @@ def WndClass0(hwnd, msg, wParam, lParam):
         path1 = GetDlgItemText(hwnd,3)
         pathzip = path1.split('\r\n')
         
-        objectname = pathzip[0].split("\\")
         z = zipfile.ZipFile(pathzip[0], 'r') 
 
         x_choose = SendMessage (Ctrl8, BM_GETCHECK, 0, 0)
@@ -129,30 +128,37 @@ def WndClass0(hwnd, msg, wParam, lParam):
         Userpath2 = "C:\\Users\\"+os.environ['USERNAME']+"\\AppData\\Roaming\\kicad\\fp-lib-table" + '.'
         
         folder = os.path.exists(path)
-        print(path,path1)
         if not folder:
           os.makedirs(path)
           print('built success')
         else :
           print('not built')
-        
-        print(z)
 
         for libname in a1 :
-          content1 = '  (lib (name ' + objectname[-1] + ')(type Legacy)(uri ' + path + '/' + libname + ')(options "")(descr "")) \n'
+          libname1 = (((libname.split('/'))[-1]).split('.'))[0]
+          
+          content1 = '  (lib (name ' + libname1 + ')(type Legacy)(uri ' + path + '/' + libname + ')(options "")(descr "")) \n'
           filmsexecute(Userpath1,content1,1)
+        
         for libname in c1:
           Userpath3 =  path + '/' + libname
-          list1 = libname.split('/')
-          list1.pop()
-          
           listfile1 = []
-          for listfile in list1:
-            listfile = '/' + listfile
-            listfile1.append(listfile)
-          c11 = ''.join(listfile1)
           
-          content2 = '  (lib (name ' + objectname[-1] + ')(type KiCad)(uri ' + path  + c11 + ')(options "")(descr "")) \n'
+          
+          try :
+            list1 = libname.split('/')
+            list1.pop()
+            list2 = (list1[-1].split('.'))[0]
+            for listfile in list1:
+              listfile = '/' + listfile
+              listfile1.append(listfile)
+            c11 = ''.join(listfile1)
+          except:
+            list1 = libname.split('/')
+            list2 = (list1[-1].split('.'))[0]
+            c11 = ''
+          
+          content2 = '  (lib (name ' + list2 + ')(type KiCad)(uri ' + path  + c11 + ')(options "")(descr "")) \n'
           
           if content2 != content2str:
             filmsexecute(Userpath2,content2,1)
@@ -216,6 +222,9 @@ SendMessage(Ctrl11, WM_SETFONT,hfont,FALSE);
 
 configfile = "C:\\Users\\"+os.environ['USERNAME']+"\\AppData\\Roaming\\KicadAddLib\\"
 folder = os.path.exists(configfile)
+
+print(openencoding)
+
 if not folder:
   os.makedirs(configfile)
   configtxt = open(configfile + 'config.txt','w',encoding=openencoding)
