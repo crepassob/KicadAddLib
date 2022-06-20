@@ -13,17 +13,13 @@
 
 ###### 另外，如果导入的3d模型与封装的位置有所偏移，则需要勾选旋转调整。一般情况下，模型的偏移值为：-90，且只有一个轴需要勾选。
 
-###### 例如，您使用：https://www.snapeda.com/ 来下载库，则需要勾选X轴。使用：LCKiConverter浏览器插件来下载库，则需要勾选Z轴。
+###### 例如，您使用：https://www.snapeda.com/ 来下载库，则需要勾选X轴。使用：LCKiConverter浏览器插件来下载库，则需要勾选Z轴（kicad5.x）。一般情况下，一类文件的旋转方向是固定的，不过有些3d模型需要手动调整，这与模型文件本身有关。
 
 ### 注意事项：
 
-###### 输入路径分隔符为‘/’，而不是‘\’,否则导入的库会无法读取
+###### 如果导入3d模型错误，建议取消勾选添加3d模型。如果方向不对，则可以通过程序旋转对勾框以及kicad封装编辑器手动修改。
 
-###### 如果您在使用中发现Kicad意外报错则需要删除 sym-lib-table和fp-lib-table 新添加的项目，并注意括号的数量。本人使用上述网址以及插件能够正常运行，不保证其他网站下载的压缩包能够正确添加。
-
-### 后言：
-
-###### 这只是本人随手随便写的程序，不保证其他情况能够正确运行，如果无法使用请自行修改或绕行。
+###### 如果您在使用中发现Kicad意外报错则需要删除 sym-lib-table和fp-lib-table 新添加的项目，可以点击按钮自行修改
 
 ------------------------------------------------------------------------------------------------------------------------------------
 
@@ -39,10 +35,10 @@
 
 ##### In addition, if the imported 3d model is offset from the position of the package, you need to check the rotation adjustment. In general, the offset value of the model is: -90, and only one axis needs to be checked.
 
-##### For example, if you use: https://www.snapeda.com/ to download the library, you need to tick the X axis. Use: LCKiConverter browser plugin to download the library, you need to check the Z axis.
+##### For example, if you use: https://www.snapeda.com/ to download the library, you need to tick the X axis. Use: LCKiConverter browser plug-in to download the library, you need to check the Z axis (kicad5.x). In general, the rotation direction of a class of files is fixed, but some 3D models need to be adjusted manually, which is related to the model file itself.
 
 ### Precautions:
 
-##### The input path separator is '/' instead of '\', otherwise the imported library will not be able to read
+##### If the imported 3d model is wrong, it is recommended to uncheck the add 3d model. If the orientation is wrong, it can be manually modified by programmatically rotating the check box and the kicad package editor.
 
-##### If you find that Kicad unexpectedly reports an error during use, you need to delete the newly added items of sym-lib-table and fp-lib-table, and pay attention to the number of brackets. I use the above URL and plug-ins to run normally, and I do not guarantee that the compressed packages downloaded from other websites can be added correctly.
+##### If you find that Kicad unexpectedly reports an error during use, you need to delete the newly added items of sym-lib-table and fp-lib-table, you can click the button to modify it yourself
